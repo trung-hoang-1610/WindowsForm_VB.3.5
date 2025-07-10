@@ -1,0 +1,16 @@
+D:\Trung\.Net\TechStoreApp\TechStoreApp\bin\Debug\TechStoreApp.exe
+D:\Trung\.Net\TechStoreApp\TechStoreApp\bin\Debug\TechStoreApp.pdb
+D:\Trung\.Net\TechStoreApp\TechStoreApp\bin\Debug\TechStoreApp.xml
+D:\Trung\.Net\TechStoreApp\TechStoreApp\obj\Debug\TechStoreApp.vbproj.AssemblyReference.cache
+D:\Trung\.Net\TechStoreApp\TechStoreApp\obj\Debug\TechStoreApp.Resources.resources
+D:\Trung\.Net\TechStoreApp\TechStoreApp\obj\Debug\TechStoreApp.vbproj.GenerateResource.cache
+D:\Trung\.Net\TechStoreApp\TechStoreApp\obj\Debug\TechStoreApp.vbproj.CoreCompileInputs.cache
+D:\Trung\.Net\TechStoreApp\TechStoreApp\obj\Debug\TechStoreApp.exe
+D:\Trung\.Net\TechStoreApp\TechStoreApp\obj\Debug\TechStoreApp.xml
+D:\Trung\.Net\TechStoreApp\TechStoreApp\obj\Debug\TechStoreApp.pdb
+D:\Trung\.Net\TechStoreApp\TechStoreApp\bin\Debug\TechStoreApp.exe.config
+D:\Trung\.Net\TechStoreApp\TechStoreApp\obj\Debug\TechStoreApp.CategoryManagementForm.resources
+D:\Trung\.Net\TechStoreApp\TechStoreApp\obj\Debug\TechStoreApp.LoginForm.resources
+D:\Trung\.Net\TechStoreApp\TechStoreApp\obj\Debug\TechStoreApp.MainForm.resources
+D:\Trung\.Net\TechStoreApp\TechStoreApp\obj\Debug\TechStoreApp.ProductManagementForm.resources
+D:\Trung\.Net\TechStoreApp\TechStoreApp\obj\Debug\TechStoreApp.RegisterForm.resources

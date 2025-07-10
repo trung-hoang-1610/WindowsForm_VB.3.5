@@ -1,0 +1,10 @@
+# Normalize line endings
+* text=auto
+
+# Treat all .cs files as UTF-8
+*.cs text diff=csharp
+
+# Prevent Visual Studio files from being tracked as binary
+*.suo binary
+*.user binary
+*.vsidx binary

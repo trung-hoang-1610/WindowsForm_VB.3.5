@@ -1,0 +1,1105 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+TechStoreApp
+</name>
+</assembly>
+<members>
+<member name="T:TechStoreApp.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:TechStoreApp.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:TechStoreApp.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="M:TechStoreApp.AuthService.#ctor(TechStoreApp.IUserRepository)">
+ <summary>
+ Khởi tạo AuthService với repository tương ứng
+ </summary>
+ <param name="userRepository">Đối tượng IUserRepository để truy cập dữ liệu</param>
+ <exception cref="T:System.ArgumentNullException">Ném ra nếu userRepository là Nothing</exception>
+</member>
+<member name="M:TechStoreApp.AuthService.ValidateUser(System.String,System.String)">
+ <summary>
+ Xác thực người dùng dựa trên tên đăng nhập và mật khẩu
+ </summary>
+ <param name="username">Tên đăng nhập</param>
+ <param name="password">Mật khẩu chưa mã hóa</param>
+ <returns>Đối tượng User nếu xác thực thành công, Nothing nếu thất bại</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi truy vấn cơ sở dữ liệu</exception>
+ <exception cref="T:System.ArgumentNullException">Ném ra nếu username hoặc password là Nothing</exception>
+</member>
+<member name="M:TechStoreApp.AuthService.RegisterUser(TechStoreApp.User)">
+ <summary>
+ Đăng ký người dùng mới
+ </summary>
+ <param name="user">Đối tượng User chứa thông tin đăng ký</param>
+ <returns>OperationResult chứa trạng thái thành công và danh sách lỗi (nếu có)</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi thêm vào cơ sở dữ liệu</exception>
+ <exception cref="T:System.ArgumentNullException">Ném ra nếu tham số user là Nothing</exception>
+</member>
+<member name="M:TechStoreApp.AuthService.HashPassword(System.String)">
+ <summary>
+ Mã hóa mật khẩu sử dụng SHA1
+ </summary>
+ <param name="password">Mật khẩu cần mã hóa</param>
+ <returns>Chuỗi mật khẩu đã mã hóa</returns>
+ <exception cref="T:System.ArgumentNullException">Ném ra nếu mật khẩu là Nothing</exception>
+</member>
+<member name="M:TechStoreApp.CategoryService.#ctor(TechStoreApp.ICategoryRepository)">
+ <summary>
+ Khởi tạo CategoryService với repository tương ứng
+ </summary>
+ <param name="categoryRepository">Đối tượng ICategoryRepository để truy cập dữ liệu</param>
+ <exception cref="T:System.ArgumentNullException">Ném ra nếu categoryRepository là Nothing</exception>
+</member>
+<member name="M:TechStoreApp.CategoryService.GetAllCategories">
+ <summary>
+ Lấy danh sách tất cả danh mục
+ </summary>
+ <returns>Danh sách các đối tượng Category</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi truy vấn cơ sở dữ liệu</exception>
+</member>
+<member name="M:TechStoreApp.CategoryService.GetCategoryById(System.Int32)">
+ <summary>
+ Lấy danh mục theo mã định danh
+ </summary>
+ <param name="id">Mã định danh của danh mục</param>
+ <returns>Đối tượng Category hoặc Nothing nếu không tìm thấy</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi truy vấn cơ sở dữ liệu</exception>
+</member>
+<member name="M:TechStoreApp.CategoryService.AddCategory(TechStoreApp.Category)">
+ <summary>
+ Thêm danh mục mới
+ </summary>
+ <param name="category">Đối tượng Category cần thêm</param>
+ <returns>OperationResult chứa trạng thái thành công và danh sách lỗi (nếu có)</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi thêm vào cơ sở dữ liệu</exception>
+ <exception cref="T:System.ArgumentNullException">Ném ra nếu tham số category là Nothing</exception>
+</member>
+<member name="M:TechStoreApp.CategoryService.UpdateCategory(TechStoreApp.Category)">
+ <summary>
+ Cập nhật thông tin danh mục
+ </summary>
+ <param name="category">Đối tượng Category cần cập nhật</param>
+ <returns>OperationResult chứa trạng thái thành công và danh sách lỗi (nếu có)</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi cập nhật cơ sở dữ liệu</exception>
+ <exception cref="T:System.ArgumentNullException">Ném ra nếu tham số category là Nothing</exception>
+</member>
+<member name="M:TechStoreApp.CategoryService.DeleteCategory(System.Int32)">
+ <summary>
+ Xóa danh mục theo mã định danh
+ </summary>
+ <param name="id">Mã định danh của danh mục</param>
+ <returns>True nếu xóa thành công, False nếu thất bại</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi xóa khỏi cơ sở dữ liệu</exception>
+</member>
+<member name="M:TechStoreApp.IAuthService.ValidateUser(System.String,System.String)">
+ <summary>
+ Xác thực người dùng dựa trên tên đăng nhập và mật khẩu
+ </summary>
+ <param name="username">Tên đăng nhập</param>
+ <param name="password">Mật khẩu chưa mã hóa</param>
+ <returns>Đối tượng User nếu xác thực thành công, Nothing nếu thất bại</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi truy vấn cơ sở dữ liệu</exception>
+ <exception cref="T:System.ArgumentNullException">Ném ra nếu username hoặc password là Nothing</exception>
+</member>
+<member name="M:TechStoreApp.IAuthService.RegisterUser(TechStoreApp.User)">
+ <summary>
+ Đăng ký người dùng mới
+ </summary>
+ <param name="user">Đối tượng User chứa thông tin đăng ký</param>
+ <returns>OperationResult chứa trạng thái thành công và danh sách lỗi (nếu có)</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi thêm vào cơ sở dữ liệu</exception>
+ <exception cref="T:System.ArgumentNullException">Ném ra nếu tham số user là Nothing</exception>
+</member>
+<member name="M:TechStoreApp.ICategoryService.GetAllCategories">
+ <summary>
+ Lấy danh sách tất cả danh mục
+ </summary>
+ <returns>Danh sách các đối tượng Category</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi truy vấn cơ sở dữ liệu</exception>
+</member>
+<member name="M:TechStoreApp.ICategoryService.GetCategoryById(System.Int32)">
+ <summary>
+ Lấy danh mục theo mã định danh
+ </summary>
+ <param name="id">Mã định danh của danh mục</param>
+ <returns>Đối tượng Category hoặc Nothing nếu không tìm thấy</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi truy vấn cơ sở dữ liệu</exception>
+</member>
+<member name="M:TechStoreApp.ICategoryService.AddCategory(TechStoreApp.Category)">
+ <summary>
+ Thêm danh mục mới
+ </summary>
+ <param name="category">Đối tượng Category cần thêm</param>
+ <returns>Tuple chứa trạng thái thành công và danh sách lỗi (nếu có)</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi thêm vào cơ sở dữ liệu</exception>
+ <exception cref="T:System.ArgumentNullException">Ném ra nếu tham số category là Nothing</exception>
+</member>
+<member name="M:TechStoreApp.ICategoryService.UpdateCategory(TechStoreApp.Category)">
+ <summary>
+ Cập nhật thông tin danh mục
+ </summary>
+ <param name="category">Đối tượng Category cần cập nhật</param>
+ <returns>Tuple chứa trạng thái thành công và danh sách lỗi (nếu có)</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi cập nhật cơ sở dữ liệu</exception>
+ <exception cref="T:System.ArgumentNullException">Ném ra nếu tham số category là Nothing</exception>
+</member>
+<member name="M:TechStoreApp.ICategoryService.DeleteCategory(System.Int32)">
+ <summary>
+ Xóa danh mục theo mã định danh
+ </summary>
+ <param name="id">Mã định danh của danh mục</param>
+ <returns>True nếu xóa thành công, False nếu thất bại</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi xóa khỏi cơ sở dữ liệu</exception>
+</member>
+<member name="M:TechStoreApp.IProductService.GetAllProducts">
+ <summary>
+ Lấy danh sách tất cả sản phẩm
+ </summary>
+ <returns>Danh sách các đối tượng Product</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi truy vấn cơ sở dữ liệu</exception>
+</member>
+<member name="M:TechStoreApp.IProductService.GetProductById(System.Int32)">
+ <summary>
+ Lấy sản phẩm theo mã định danh
+ </summary>
+ <param name="id">Mã định danh của sản phẩm</param>
+ <returns>Đối tượng Product hoặc Nothing nếu không tìm thấy</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi truy vấn cơ sở dữ liệu</exception>
+</member>
+<member name="M:TechStoreApp.IProductService.AddProduct(TechStoreApp.Product)">
+ <summary>
+ Thêm sản phẩm mới
+ </summary>
+ <param name="product">Đối tượng Product cần thêm</param>
+ <returns>Tuple chứa trạng thái thành công và danh sách lỗi (nếu có)</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi thêm vào cơ sở dữ liệu</exception>
+ <exception cref="T:System.ArgumentNullException">Ném ra nếu tham số product là Nothing</exception>
+</member>
+<member name="M:TechStoreApp.IProductService.UpdateProduct(TechStoreApp.Product)">
+ <summary>
+ Cập nhật thông tin sản phẩm
+ </summary>
+ <param name="product">Đối tượng Product cần cập nhật</param>
+ <returns>Tuple chứa trạng thái thành công và danh sách lỗi (nếu có)</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi cập nhật cơ sở dữ liệu</exception>
+ <exception cref="T:System.ArgumentNullException">Ném ra nếu tham số product là Nothing</exception>
+</member>
+<member name="M:TechStoreApp.IProductService.DeleteProduct(System.Int32)">
+ <summary>
+ Xóa sản phẩm theo mã định danh
+ </summary>
+ <param name="id">Mã định danh của sản phẩm</param>
+ <returns>True nếu xóa thành công, False nếu thất bại</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi xóa khỏi cơ sở dữ liệu</exception>
+</member>
+<member name="M:TechStoreApp.IProductService.GetProductsByPage(System.Int32,System.Int32)">
+ <summary>
+ Lấy danh sách sản phẩm có phân trang
+ </summary>
+ <param name="pageIndex">Chỉ số trang (bắt đầu từ 0)</param>
+ <param name="pageSize">Số lượng sản phẩm mỗi trang</param>
+ <returns>Danh sách sản phẩm tương ứng với trang</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi truy vấn cơ sở dữ liệu</exception>
+</member>
+<member name="M:TechStoreApp.IProductService.GetTotalProductCount">
+ <summary>
+ Lấy tổng số lượng sản phẩm trong hệ thống
+ </summary>
+ <returns>Tổng số sản phẩm</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi truy vấn cơ sở dữ liệu</exception>
+</member>
+<member name="M:TechStoreApp.IRoleService.GetAllRoles">
+ <summary>
+ Lấy danh sách tất cả vai trò
+ </summary>
+ <returns>Danh sách các đối tượng Role</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi truy vấn cơ sở dữ liệu</exception>
+</member>
+<member name="M:TechStoreApp.IRoleService.GetRoleById(System.Int32)">
+ <summary>
+ Lấy vai trò theo mã định danh
+ </summary>
+ <param name="id">Mã định danh của vai trò</param>
+ <returns>Đối tượng Role hoặc Nothing nếu không tìm thấy</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi truy vấn cơ sở dữ liệu</exception>
+</member>
+<member name="M:TechStoreApp.IUserService.GetUserById(System.Int32)">
+ <summary>
+ Lấy người dùng theo mã định danh
+ </summary>
+ <param name="id">Mã định danh của người dùng</param>
+ <returns>Đối tượng User hoặc Nothing nếu không tìm thấy</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi truy vấn cơ sở dữ liệu</exception>
+</member>
+<member name="M:TechStoreApp.IUserService.AddUser(TechStoreApp.User)">
+ <summary>
+ Thêm người dùng mới
+ </summary>
+ <param name="user">Đối tượng User cần thêm</param>
+ <returns>Tuple chứa trạng thái thành công và danh sách lỗi (nếu có)</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi thêm vào cơ sở dữ liệu</exception>
+ <exception cref="T:System.ArgumentNullException">Ném ra nếu tham số user là Nothing</exception>
+</member>
+<member name="M:TechStoreApp.IUserService.ValidateUser(System.String,System.String)">
+ <summary>
+ Xác thực người dùng dựa trên tên đăng nhập và mật khẩu
+ </summary>
+ <param name="username">Tên đăng nhập</param>
+ <param name="password">Mật khẩu chưa mã hóa</param>
+ <returns>Đối tượng User nếu xác thực thành công, Nothing nếu thất bại</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi truy vấn cơ sở dữ liệu</exception>
+ <exception cref="T:System.ArgumentNullException">Ném ra nếu username hoặc password là Nothing</exception>
+</member>
+<member name="M:TechStoreApp.ProductService.#ctor(TechStoreApp.IProductRepository,TechStoreApp.ICategoryRepository)">
+ <summary>
+ Khởi tạo ProductService với repository tương ứng
+ </summary>
+ <param name="productRepository">Đối tượng IProductRepository</param>
+ <param name="categoryRepository">Đối tượng ICategoryRepository</param>
+ <exception cref="T:System.ArgumentNullException">Ném ra nếu productRepository hoặc categoryRepository là Nothing</exception>
+</member>
+<member name="M:TechStoreApp.ProductService.LoadCategoryCache">
+ <summary>
+ Tải danh sách danh mục vào bộ nhớ cache để cải thiện hiệu suất
+ </summary>
+ <returns>Danh sách danh mục dưới dạng Dictionary</returns>
+</member>
+<member name="M:TechStoreApp.ProductService.GetAllProducts">
+ <summary>
+ Trả về danh sách tất cả sản phẩm dưới dạng DTO
+ </summary>
+ <returns>Danh sách ProductDTO</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi truy vấn cơ sở dữ liệu</exception>
+</member>
+<member name="M:TechStoreApp.ProductService.GetProductById(System.Int32)">
+ <summary>
+ Trả về sản phẩm theo ID dưới dạng DTO
+ </summary>
+ <param name="id">Mã sản phẩm</param>
+ <returns>ProductDTO hoặc Nothing nếu không tìm thấy</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi truy vấn cơ sở dữ liệu</exception>
+</member>
+<member name="M:TechStoreApp.ProductService.GetProductsByPage(System.Int32,System.Int32)">
+ <summary>
+ Trả về danh sách sản phẩm theo trang dưới dạng DTO
+ </summary>
+ <param name="pageIndex">Chỉ số trang (bắt đầu từ 0)</param>
+ <param name="pageSize">Kích thước trang</param>
+ <returns>Danh sách ProductDTO</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi truy vấn cơ sở dữ liệu</exception>
+ <exception cref="T:System.ArgumentException">Ném ra nếu pageIndex hoặc pageSize không hợp lệ</exception>
+</member>
+<member name="M:TechStoreApp.ProductService.GetTotalProductCount">
+ <summary>
+ Trả về tổng số sản phẩm
+ </summary>
+ <returns>Tổng số sản phẩm</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi truy vấn cơ sở dữ liệu</exception>
+</member>
+<member name="M:TechStoreApp.ProductService.AddProduct(TechStoreApp.Product)">
+ <summary>
+ Thêm mới sản phẩm
+ </summary>
+ <param name="product">Đối tượng Product cần thêm</param>
+ <returns>OperationResult chứa trạng thái thành công và danh sách lỗi (nếu có)</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi thêm vào cơ sở dữ liệu</exception>
+ <exception cref="T:System.ArgumentNullException">Ném ra nếu product là Nothing</exception>
+</member>
+<member name="M:TechStoreApp.ProductService.UpdateProduct(TechStoreApp.Product)">
+ <summary>
+ Cập nhật sản phẩm
+ </summary>
+ <param name="product">Đối tượng Product cần cập nhật</param>
+ <returns>OperationResult chứa trạng thái thành công và danh sách lỗi (nếu có)</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi cập nhật cơ sở dữ liệu</exception>
+ <exception cref="T:System.ArgumentNullException">Ném ra nếu product là Nothing</exception>
+</member>
+<member name="M:TechStoreApp.ProductService.DeleteProduct(System.Int32)">
+ <summary>
+ Xóa sản phẩm theo ID
+ </summary>
+ <param name="id">Mã sản phẩm</param>
+ <returns>True nếu xóa thành công, False nếu thất bại</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi xóa khỏi cơ sở dữ liệu</exception>
+</member>
+<member name="M:TechStoreApp.ProductService.MapToDTO(TechStoreApp.Product)">
+ <summary>
+ Chuyển đổi đối tượng Product sang ProductDTO
+ </summary>
+</member>
+<member name="M:TechStoreApp.ProductService.MapToDTOList(System.Collections.Generic.List{TechStoreApp.Product})">
+ <summary>
+ Chuyển đổi danh sách Product sang danh sách ProductDTO
+ </summary>
+</member>
+<member name="M:TechStoreApp.RoleService.#ctor(TechStoreApp.IRoleRepository)">
+ <summary>
+ Khởi tạo RoleService với repository tương ứng
+ </summary>
+ <param name="roleRepository">Đối tượng IRoleRepository để truy cập dữ liệu</param>
+ <exception cref="T:System.ArgumentNullException">Ném ra nếu roleRepository là Nothing</exception>
+</member>
+<member name="M:TechStoreApp.RoleService.GetAllRoles">
+ <summary>
+ Lấy danh sách tất cả vai trò
+ </summary>
+ <returns>Danh sách các đối tượng Role</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi truy vấn cơ sở dữ liệu</exception>
+</member>
+<member name="M:TechStoreApp.RoleService.GetRoleById(System.Int32)">
+ <summary>
+ Lấy vai trò theo mã định danh
+ </summary>
+ <param name="id">Mã định danh của vai trò</param>
+ <returns>Đối tượng Role hoặc Nothing nếu không tìm thấy</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi truy vấn cơ sở dữ liệu</exception>
+</member>
+<member name="M:TechStoreApp.UserService.#ctor(TechStoreApp.IUserRepository)">
+ <summary>
+ Khởi tạo UserService với repository tương ứng
+ </summary>
+ <param name="userRepository">Đối tượng IUserRepository để truy cập dữ liệu</param>
+ <exception cref="T:System.ArgumentNullException">Ném ra nếu userRepository là Nothing</exception>
+</member>
+<member name="M:TechStoreApp.UserService.GetUserById(System.Int32)">
+ <summary>
+ Lấy người dùng theo mã định danh
+ </summary>
+ <param name="id">Mã định danh của người dùng</param>
+ <returns>Đối tượng User hoặc Nothing nếu không tìm thấy</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi truy vấn cơ sở dữ liệu</exception>
+</member>
+<member name="M:TechStoreApp.UserService.AddUser(TechStoreApp.User)">
+ <summary>
+ Thêm người dùng mới
+ </summary>
+ <param name="user">Đối tượng User cần thêm</param>
+ <returns>OperationResult chứa trạng thái thành công và danh sách lỗi (nếu có)</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi thêm vào cơ sở dữ liệu</exception>
+ <exception cref="T:System.ArgumentNullException">Ném ra nếu tham số user là Nothing</exception>
+</member>
+<member name="M:TechStoreApp.UserService.ValidateUser(System.String,System.String)">
+ <summary>
+ Xác thực người dùng dựa trên tên đăng nhập và mật khẩu
+ </summary>
+ <param name="username">Tên đăng nhập</param>
+ <param name="password">Mật khẩu chưa mã hóa</param>
+ <returns>Đối tượng User nếu xác thực thành công, Nothing nếu thất bại</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi truy vấn cơ sở dữ liệu</exception>
+ <exception cref="T:System.ArgumentNullException">Ném ra nếu username hoặc password là Nothing</exception>
+</member>
+<member name="P:TechStoreApp.ConnectionHelper.ConnectionString">
+ <summary>
+ Lấy chuỗi kết nối từ tệp App.config
+ </summary>
+</member>
+<member name="M:TechStoreApp.ConnectionHelper.GetConnection">
+ <summary>
+ Tạo và mở kết nối ODBC tới cơ sở dữ liệu
+ </summary>
+ <returns>Đối tượng OdbcConnection đã mở</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu không thể kết nối đến cơ sở dữ liệu</exception>
+</member>
+<member name="M:TechStoreApp.ConnectionHelper.CloseConnection(System.Data.Odbc.OdbcConnection)">
+ <summary>
+ Đóng và giải phóng kết nối ODBC
+ </summary>
+ <param name="connection">Đối tượng OdbcConnection cần đóng</param>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi đóng kết nối</exception>
+</member>
+<member name="M:TechStoreApp.SessionManager.SetCurrentUser(TechStoreApp.User)">
+ <summary>
+ Lưu thông tin người dùng hiện tại sau khi đăng nhập
+ </summary>
+ <param name="user">Đối tượng User chứa thông tin người dùng</param>
+ <exception cref="T:System.ArgumentNullException">Ném ra nếu user là Nothing</exception>
+</member>
+<member name="M:TechStoreApp.SessionManager.GetCurrentUser">
+ <summary>
+ Lấy thông tin người dùng hiện tại
+ </summary>
+ <returns>Đối tượng User hoặc Nothing nếu chưa đăng nhập</returns>
+</member>
+<member name="M:TechStoreApp.SessionManager.ClearSession">
+ <summary>
+ Xóa thông tin người dùng hiện tại
+ </summary>
+</member>
+<member name="M:TechStoreApp.ValidationHelper.ValidateString(System.String,System.String,System.Collections.Generic.List{System.String},System.Boolean,System.Int32)">
+ <summary>
+ Kiểm tra giá trị chuỗi và thêm lỗi vào danh sách nếu không hợp lệ
+ </summary>
+ <param name="value">Giá trị chuỗi cần kiểm tra</param>
+ <param name="fieldName">Tên trường hiển thị trong thông báo lỗi</param>
+ <param name="errors">Danh sách lỗi để thêm vào</param>
+ <param name="isRequired">Xác định xem trường có bắt buộc hay không</param>
+ <param name="maxLength">Độ dài tối đa của chuỗi (0 nếu không giới hạn)</param>
+ <exception cref="T:System.ArgumentNullException">Ném ra nếu danh sách errors là Nothing</exception>
+</member>
+<member name="M:TechStoreApp.ValidationHelper.ValidateDecimal(System.Decimal,System.String,System.Collections.Generic.List{System.String},System.Decimal)">
+ <summary>
+ Kiểm tra giá trị số thập phân và thêm lỗi vào danh sách nếu không hợp lệ
+ </summary>
+ <param name="value">Giá trị số thập phân cần kiểm tra</param>
+ <param name="fieldName">Tên trường hiển thị trong thông báo lỗi</param>
+ <param name="errors">Danh sách lỗi để thêm vào</param>
+ <param name="minValue">Giá trị tối thiểu cho phép</param>
+ <exception cref="T:System.ArgumentNullException">Ném ra nếu danh sách errors là Nothing</exception>
+</member>
+<member name="M:TechStoreApp.ValidationHelper.ValidateInteger(System.Int32,System.String,System.Collections.Generic.List{System.String},System.Int32)">
+ <summary>
+ Kiểm tra giá trị số nguyên và thêm lỗi vào danh sách nếu không hợp lệ
+ </summary>
+ <param name="value">Giá trị số nguyên cần kiểm tra</param>
+ <param name="fieldName">Tên trường hiển thị trong thông báo lỗi</param>
+ <param name="errors">Danh sách lỗi để thêm vào</param>
+ <param name="minValue">Giá trị tối thiểu cho phép</param>
+ <exception cref="T:System.ArgumentNullException">Ném ra nếu danh sách errors là Nothing</exception>
+</member>
+<member name="M:TechStoreApp.CategoryRepository.GetAllCategories">
+ <summary>
+ Lấy danh sách tất cả danh mục từ cơ sở dữ liệu
+ </summary>
+ <returns>Danh sách các đối tượng Category</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi truy vấn cơ sở dữ liệu</exception>
+</member>
+<member name="M:TechStoreApp.CategoryRepository.GetCategoryById(System.Int32)">
+ <summary>
+ Lấy danh mục theo mã định danh từ cơ sở dữ liệu
+ </summary>
+ <param name="id">Mã định danh của danh mục</param>
+ <returns>Đối tượng Category hoặc Nothing nếu không tìm thấy</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi truy vấn cơ sở dữ liệu</exception>
+</member>
+<member name="M:TechStoreApp.CategoryRepository.AddCategory(TechStoreApp.Category)">
+ <summary>
+ Thêm danh mục mới vào cơ sở dữ liệu
+ </summary>
+ <param name="category">Đối tượng Category cần thêm</param>
+ <returns>Mã định danh của danh mục mới</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi thêm vào cơ sở dữ liệu</exception>
+</member>
+<member name="M:TechStoreApp.CategoryRepository.UpdateCategory(TechStoreApp.Category)">
+ <summary>
+ Cập nhật thông tin danh mục trong cơ sở dữ liệu
+ </summary>
+ <param name="category">Đối tượng Category cần cập nhật</param>
+ <returns>True nếu cập nhật thành công, False nếu thất bại</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi cập nhật cơ sở dữ liệu</exception>
+</member>
+<member name="M:TechStoreApp.CategoryRepository.DeleteCategory(System.Int32)">
+ <summary>
+ Xóa danh mục theo mã định danh từ cơ sở dữ liệu
+ </summary>
+ <param name="id">Mã định danh của danh mục</param>
+ <returns>True nếu xóa thành công, False nếu thất bại</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi xóa khỏi cơ sở dữ liệu</exception>
+</member>
+<member name="M:TechStoreApp.ICategoryRepository.GetAllCategories">
+ <summary>
+ Lấy danh sách tất cả danh mục
+ </summary>
+ <returns>Danh sách các đối tượng Category</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi truy vấn cơ sở dữ liệu</exception>
+</member>
+<member name="M:TechStoreApp.ICategoryRepository.GetCategoryById(System.Int32)">
+ <summary>
+ Lấy danh mục theo mã định danh
+ </summary>
+ <param name="id">Mã định danh của danh mục</param>
+ <returns>Đối tượng Category hoặc Nothing nếu không tìm thấy</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi truy vấn cơ sở dữ liệu</exception>
+</member>
+<member name="M:TechStoreApp.ICategoryRepository.AddCategory(TechStoreApp.Category)">
+ <summary>
+ Thêm danh mục mới vào cơ sở dữ liệu
+ </summary>
+ <param name="category">Đối tượng Category cần thêm</param>
+ <returns>Mã định danh của danh mục mới</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi thêm vào cơ sở dữ liệu</exception>
+</member>
+<member name="M:TechStoreApp.ICategoryRepository.UpdateCategory(TechStoreApp.Category)">
+ <summary>
+ Cập nhật thông tin danh mục
+ </summary>
+ <param name="category">Đối tượng Category cần cập nhật</param>
+ <returns>True nếu cập nhật thành công, False nếu thất bại</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi cập nhật cơ sở dữ liệu</exception>
+</member>
+<member name="M:TechStoreApp.ICategoryRepository.DeleteCategory(System.Int32)">
+ <summary>
+ Xóa danh mục theo mã định danh
+ </summary>
+ <param name="id">Mã định danh của danh mục</param>
+ <returns>True nếu xóa thành công, False nếu thất bại</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi xóa khỏi cơ sở dữ liệu</exception>
+</member>
+<member name="M:TechStoreApp.IProductRepository.GetAllProducts">
+ <summary>
+ Lấy danh sách tất cả sản phẩm
+ </summary>
+ <returns>Danh sách các đối tượng Product</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi truy vấn cơ sở dữ liệu</exception>
+</member>
+<member name="M:TechStoreApp.IProductRepository.GetProductById(System.Int32)">
+ <summary>
+ Lấy sản phẩm theo mã định danh
+ </summary>
+ <param name="id">Mã định danh của sản phẩm</param>
+ <returns>Đối tượng Product hoặc Nothing nếu không tìm thấy</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi truy vấn cơ sở dữ liệu</exception>
+</member>
+<member name="M:TechStoreApp.IProductRepository.AddProduct(TechStoreApp.Product)">
+ <summary>
+ Thêm sản phẩm mới vào cơ sở dữ liệu
+ </summary>
+ <param name="product">Đối tượng Product cần thêm</param>
+ <returns>Mã định danh của sản phẩm mới</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi thêm vào cơ sở dữ liệu</exception>
+</member>
+<member name="M:TechStoreApp.IProductRepository.UpdateProduct(TechStoreApp.Product)">
+ <summary>
+ Cập nhật thông tin sản phẩm
+ </summary>
+ <param name="product">Đối tượng Product cần cập nhật</param>
+ <returns>True nếu cập nhật thành công, False nếu thất bại</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi cập nhật cơ sở dữ liệu</exception>
+</member>
+<member name="M:TechStoreApp.IProductRepository.DeleteProduct(System.Int32)">
+ <summary>
+ Xóa sản phẩm theo mã định danh
+ </summary>
+ <param name="id">Mã định danh của sản phẩm</param>
+ <returns>True nếu xóa thành công, False nếu thất bại</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi xóa khỏi cơ sở dữ liệu</exception>
+</member>
+<member name="M:TechStoreApp.IProductRepository.GetProductsByPage(System.Int32,System.Int32)">
+ <summary>
+ Lấy danh sách sản phẩm có phân trang
+ </summary>
+ <param name="pageIndex">Chỉ số trang (bắt đầu từ 0)</param>
+ <param name="pageSize">Số lượng sản phẩm mỗi trang</param>
+ <returns>Danh sách sản phẩm tương ứng với trang</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi truy vấn cơ sở dữ liệu</exception>
+</member>
+<member name="M:TechStoreApp.IProductRepository.GetTotalProductCount">
+ <summary>
+ Đếm tổng số sản phẩm trong cơ sở dữ liệu
+ </summary>
+ <returns>Tổng số sản phẩm</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi truy vấn cơ sở dữ liệu</exception>
+</member>
+<member name="M:TechStoreApp.IRoleRepository.GetAllRoles">
+ <summary>
+ Lấy danh sách tất cả vai trò
+ </summary>
+ <returns>Danh sách các đối tượng Role</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi truy vấn cơ sở dữ liệu</exception>
+</member>
+<member name="M:TechStoreApp.IRoleRepository.GetRoleById(System.Int32)">
+ <summary>
+ Lấy vai trò theo mã định danh
+ </summary>
+ <param name="id">Mã định danh của vai trò</param>
+ <returns>Đối tượng Role hoặc Nothing nếu không tìm thấy</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi truy vấn cơ sở dữ liệu</exception>
+</member>
+<member name="M:TechStoreApp.IUserRepository.GetUserById(System.Int32)">
+ <summary>
+ Lấy người dùng theo mã định danh
+ </summary>
+ <param name="id">Mã định danh của người dùng</param>
+ <returns>Đối tượng User hoặc Nothing nếu không tìm thấy</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi truy vấn cơ sở dữ liệu</exception>
+</member>
+<member name="M:TechStoreApp.IUserRepository.AddUser(TechStoreApp.User)">
+ <summary>
+ Thêm người dùng mới vào cơ sở dữ liệu
+ </summary>
+ <param name="user">Đối tượng User cần thêm</param>
+ <returns>Mã định danh của người dùng mới</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi thêm vào cơ sở dữ liệu</exception>
+</member>
+<member name="M:TechStoreApp.IUserRepository.ValidateUser(System.String,System.String)">
+ <summary>
+ Xác thực người dùng dựa trên tên đăng nhập và mật khẩu
+ </summary>
+ <param name="username">Tên đăng nhập</param>
+ <param name="password">Mật khẩu chưa mã hóa</param>
+ <returns>Đối tượng User nếu xác thực thành công, Nothing nếu thất bại</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi truy vấn cơ sở dữ liệu</exception>
+</member>
+<member name="M:TechStoreApp.ProductRepository.GetAllProducts">
+ <summary>
+ Lấy danh sách tất cả sản phẩm từ cơ sở dữ liệu
+ </summary>
+ <returns>Danh sách các đối tượng Product</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi truy vấn cơ sở dữ liệu</exception>
+</member>
+<member name="M:TechStoreApp.ProductRepository.GetProductById(System.Int32)">
+ <summary>
+ Lấy sản phẩm theo mã định danh từ cơ sở dữ liệu
+ </summary>
+ <param name="id">Mã định danh của sản phẩm</param>
+ <returns>Đối tượng Product hoặc Nothing nếu không tìm thấy</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi truy vấn cơ sở dữ liệu</exception>
+</member>
+<member name="M:TechStoreApp.ProductRepository.GetProductsByPage(System.Int32,System.Int32)">
+ <summary>
+ Lấy danh sách sản phẩm theo trang
+ </summary>
+ <param name="pageIndex">Trang số (bắt đầu từ 0)</param>
+ <param name="pageSize">Số sản phẩm mỗi trang</param>
+ <returns>Danh sách sản phẩm trong trang</returns>
+</member>
+<member name="M:TechStoreApp.RoleRepository.GetAllRoles">
+ <summary>
+ Lấy danh sách tất cả vai trò từ cơ sở dữ liệu
+ </summary>
+ <returns>Danh sách các đối tượng Role</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi truy vấn cơ sở dữ liệu</exception>
+</member>
+<member name="M:TechStoreApp.RoleRepository.GetRoleById(System.Int32)">
+ <summary>
+ Lấy vai trò theo mã định danh từ cơ sở dữ liệu
+ </summary>
+ <param name="id">Mã định danh của vai trò</param>
+ <returns>Đối tượng Role hoặc Nothing nếu không tìm thấy</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi truy vấn cơ sở dữ liệu</exception>
+</member>
+<member name="M:TechStoreApp.UserRepository.GetUserById(System.Int32)">
+ <summary>
+ Lấy người dùng theo mã định danh từ cơ sở dữ liệu
+ </summary>
+ <param name="id">Mã định danh của người dùng</param>
+ <returns>Đối tượng User hoặc Nothing nếu không tìm thấy</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi truy vấn cơ sở dữ liệu</exception>
+</member>
+<member name="M:TechStoreApp.UserRepository.AddUser(TechStoreApp.User)">
+ <summary>
+ Thêm người dùng mới vào cơ sở dữ liệu
+ </summary>
+ <param name="user">Đối tượng User cần thêm</param>
+ <returns>Mã định danh của người dùng mới</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi thêm vào cơ sở dữ liệu</exception>
+</member>
+<member name="M:TechStoreApp.UserRepository.ValidateUser(System.String,System.String)">
+ <summary>
+ Xác thực người dùng dựa trên tên đăng nhập và mật khẩu
+ </summary>
+ <param name="username">Tên đăng nhập</param>
+ <param name="password">Mật khẩu chưa mã hóa</param>
+ <returns>Đối tượng User nếu xác thực thành công, Nothing nếu thất bại</returns>
+ <exception cref="T:System.Data.Odbc.OdbcException">Ném ra nếu có lỗi khi truy vấn cơ sở dữ liệu</exception>
+ <exception cref="T:System.ArgumentNullException">Ném ra nếu username hoặc password là Nothing</exception>
+</member>
+<member name="M:TechStoreApp.RepositoryFactory.CreateRoleRepository">
+ <summary>
+ Tạo và trả về một đối tượng IRoleRepository
+ </summary>
+ <returns>Đối tượng IRoleRepository</returns>
+</member>
+<member name="M:TechStoreApp.RepositoryFactory.CreateUserRepository">
+ <summary>
+ Tạo và trả về một đối tượng IUserRepository
+ </summary>
+ <returns>Đối tượng IUserRepository</returns>
+</member>
+<member name="M:TechStoreApp.RepositoryFactory.CreateCategoryRepository">
+ <summary>
+ Tạo và trả về một đối tượng ICategoryRepository
+ </summary>
+ <returns>Đối tượng ICategoryRepository</returns>
+</member>
+<member name="M:TechStoreApp.RepositoryFactory.CreateProductRepository">
+ <summary>
+ Tạo và trả về một đối tượng IProductRepository
+ </summary>
+ <returns>Đối tượng IProductRepository</returns>
+</member>
+<member name="M:TechStoreApp.ServiceFactory.CreateAuthService">
+ <summary>
+ Tạo và trả về một đối tượng IAuthService
+ </summary>
+ <returns>Đối tượng IAuthService</returns>
+</member>
+<member name="M:TechStoreApp.ServiceFactory.CreateRoleService">
+ <summary>
+ Tạo và trả về một đối tượng IRoleService
+ </summary>
+ <returns>Đối tượng IRoleService</returns>
+</member>
+<member name="M:TechStoreApp.ServiceFactory.CreateUserService">
+ <summary>
+ Tạo và trả về một đối tượng IUserService
+ </summary>s
+ <returns>Đối tượng IUserService</returns>
+</member>
+<member name="M:TechStoreApp.ServiceFactory.CreateCategoryService">
+ <summary>
+ Tạo và trả về một đối tượng ICategoryService
+ </summary>
+ <returns>Đối tượng ICategoryService</returns>
+</member>
+<member name="M:TechStoreApp.ServiceFactory.CreateProductService">
+ <summary>
+ Tạo và trả về một đối tượng IProductService
+ </summary>
+ <returns>Đối tượng IProductService</returns>
+</member>
+<member name="M:TechStoreApp.CategoryManagementForm.#ctor">
+ <summary>
+ Khởi tạo CategoryManagementForm
+ </summary>
+</member>
+<member name="M:TechStoreApp.CategoryManagementForm.InitializeComponents">
+ <summary>
+ Khởi tạo các điều khiển giao diện
+ </summary>
+</member>
+<member name="M:TechStoreApp.CategoryManagementForm.LoadCategories">
+ <summary>
+ Tải danh sách danh mục vào DataGridView
+ </summary>
+</member>
+<member name="M:TechStoreApp.CategoryManagementForm.btnAdd_Click(System.Object,System.EventArgs)">
+ <summary>
+ Xử lý sự kiện nhấn nút Thêm
+ </summary>
+</member>
+<member name="M:TechStoreApp.CategoryManagementForm.btnUpdate_Click(System.Object,System.EventArgs)">
+ <summary>
+ Xử lý sự kiện nhấn nút Cập nhật
+ </summary>
+</member>
+<member name="M:TechStoreApp.CategoryManagementForm.btnDelete_Click(System.Object,System.EventArgs)">
+ <summary>
+ Xử lý sự kiện nhấn nút Xóa
+ </summary>
+</member>
+<member name="M:TechStoreApp.CategoryManagementForm.ClearInputs">
+ <summary>
+ Xóa các trường nhập liệu
+ </summary>
+</member>
+<member name="M:TechStoreApp.CategoryManagementForm.dgvCategories_SelectionChanged(System.Object,System.EventArgs)">
+ <summary>
+ Xử lý sự kiện chọn dòng trong DataGridView
+ </summary>
+</member>
+<member name="M:TechStoreApp.LoginForm.InitializeComponent">
+ <summary>
+ Khởi tạo các điều khiển giao diện
+ </summary>
+</member>
+<member name="M:TechStoreApp.LoginForm.#ctor">
+ <summary>
+ Khởi tạo LoginForm và các service cần thiết
+ </summary>
+</member>
+<member name="M:TechStoreApp.LoginForm.btnLogin_Click(System.Object,System.EventArgs)">
+ <summary>
+ Xử lý sự kiện nhấn nút Đăng nhập
+ </summary>
+</member>
+<member name="M:TechStoreApp.LoginForm.btnRegister_Click(System.Object,System.EventArgs)">
+ <summary>
+ Xử lý sự kiện nhấn nút Đăng ký
+ </summary>
+</member>
+<member name="M:TechStoreApp.MainForm.#ctor(System.Int32)">
+ <summary>
+ Khởi tạo MainForm với ID người dùng đã đăng nhập
+ </summary>
+ <param name="userId">Mã định danh của người dùng</param>
+</member>
+<member name="M:TechStoreApp.MainForm.InitializeComponents">
+ <summary>
+ Khởi tạo các điều khiển giao diện
+ </summary>
+</member>
+<member name="M:TechStoreApp.MainForm.MenuProduct_Click(System.Object,System.EventArgs)">
+ <summary>
+ Xử lý sự kiện click menu Quản lý sản phẩm
+ </summary>
+</member>
+<member name="M:TechStoreApp.MainForm.MenuCategory_Click(System.Object,System.EventArgs)">
+ <summary>
+ Xử lý sự kiện click menu Quản lý danh mục
+ </summary>
+</member>
+<member name="M:TechStoreApp.ProductManagementForm.#ctor(System.Int32)">
+ <summary>
+ Khởi tạo ProductManagementForm với ID người dùng
+ </summary>
+ <param name="userId">Mã định danh của người dùng</param>
+</member>
+<member name="M:TechStoreApp.ProductManagementForm.LoadCategories">
+ <summary>
+ Tải danh sách danh mục vào ComboBox
+ </summary>
+</member>
+<member name="M:TechStoreApp.ProductManagementForm.LoadProducts">
+ <summary>
+ Tải danh sách sản phẩm vào DataGridView
+ </summary>
+</member>
+<member name="M:TechStoreApp.ProductManagementForm.ClearInputs">
+ <summary>
+ Xóa các trường nhập liệu
+ </summary>
+</member>
+<member name="M:TechStoreApp.ProductManagementForm.btnAdd_Click(System.Object,System.EventArgs)">
+ <summary>
+ Xử lý sự kiện nhấn nút Thêm
+ </summary>
+</member>
+<member name="M:TechStoreApp.ProductManagementForm.btnUpdate_Click(System.Object,System.EventArgs)">
+ <summary>
+ Xử lý sự kiện nhấn nút Cập nhật
+ </summary>
+</member>
+<member name="M:TechStoreApp.ProductManagementForm.btnDelete_Click(System.Object,System.EventArgs)">
+ <summary>
+ Xử lý sự kiện nhấn nút Xóa
+ </summary>
+</member>
+<member name="M:TechStoreApp.ProductManagementForm.dgvProducts_Click(System.Object,System.EventArgs)">
+ <summary>
+ Xử lý sự kiện chọn dòng trong DataGridView
+ </summary>
+</member>
+<member name="M:TechStoreApp.ProductManagementForm.btnPrev_Click(System.Object,System.EventArgs)">
+ <summary>
+ Xử lý sự kiện nhấn nút Trang trước
+ </summary>
+</member>
+<member name="M:TechStoreApp.ProductManagementForm.btnNext_Click(System.Object,System.EventArgs)">
+ <summary>
+ Xử lý sự kiện nhấn nút Trang sau
+ </summary>
+</member>
+<member name="F:TechStoreApp.Category._categoryId">
+ <summary>
+ Trường riêng lưu mã định danh duy nhất của danh mục
+ </summary>
+</member>
+<member name="F:TechStoreApp.Category._categoryName">
+ <summary>
+ Trường riêng lưu tên danh mục
+ </summary>
+</member>
+<member name="F:TechStoreApp.Category._description">
+ <summary>
+ Trường riêng lưu mô tả danh mục
+ </summary>
+</member>
+<member name="P:TechStoreApp.Category.CategoryId">
+ <summary>
+ Lấy mã định danh duy nhất của danh mục
+ </summary>
+ <returns>Mã danh mục (CategoryId)</returns>
+</member>
+<member name="P:TechStoreApp.Category.CategoryName">
+ <summary>
+ Lấy hoặc đặt tên danh mục, không được trùng lặp
+ </summary>
+ <returns>Tên danh mục (CategoryName)</returns>
+</member>
+<member name="P:TechStoreApp.Category.Description">
+ <summary>
+ Lấy hoặc đặt mô tả chi tiết của danh mục
+ </summary>
+ <returns>Mô tả (Description)</returns>
+</member>
+<member name="F:TechStoreApp.Product._productId">
+ <summary>
+ Trường riêng lưu mã định danh duy nhất của sản phẩm
+ </summary>
+</member>
+<member name="F:TechStoreApp.Product._productName">
+ <summary>
+ Trường riêng lưu tên sản phẩm
+ </summary>
+</member>
+<member name="F:TechStoreApp.Product._description">
+ <summary>
+ Trường riêng lưu mô tả sản phẩm
+ </summary>
+</member>
+<member name="F:TechStoreApp.Product._price">
+ <summary>
+ Trường riêng lưu giá sản phẩm
+ </summary>
+</member>
+<member name="F:TechStoreApp.Product._quantity">
+ <summary>
+ Trường riêng lưu số lượng sản phẩm
+ </summary>
+</member>
+<member name="F:TechStoreApp.Product._categoryId">
+ <summary>
+ Trường riêng lưu mã danh mục
+ </summary>
+</member>
+<member name="F:TechStoreApp.Product._createdBy">
+ <summary>
+ Trường riêng lưu mã người tạo
+ </summary>
+</member>
+<member name="F:TechStoreApp.Product._createdAt">
+ <summary>
+ Trường riêng lưu thời điểm tạo
+ </summary>
+</member>
+<member name="P:TechStoreApp.Product.ProductId">
+ <summary>
+ Lấy mã định danh duy nhất của sản phẩm
+ </summary>
+ <returns>Mã sản phẩm (ProductId)</returns>
+</member>
+<member name="P:TechStoreApp.Product.ProductName">
+ <summary>
+ Lấy hoặc đặt tên sản phẩm
+ </summary>
+ <returns>Tên sản phẩm (ProductName)</returns>
+</member>
+<member name="P:TechStoreApp.Product.Description">
+ <summary>
+ Lấy hoặc đặt mô tả chi tiết của sản phẩm
+ </summary>
+ <returns>Mô tả (Description)</returns>
+</member>
+<member name="P:TechStoreApp.Product.Price">
+ <summary>
+ Lấy hoặc đặt giá sản phẩm
+ </summary>
+ <returns>Giá sản phẩm (Price)</returns>
+</member>
+<member name="P:TechStoreApp.Product.Quantity">
+ <summary>
+ Lấy hoặc đặt số lượng sản phẩm
+ </summary>
+ <returns>Số lượng (Quantity)</returns>
+</member>
+<member name="P:TechStoreApp.Product.CategoryId">
+ <summary>
+ Lấy hoặc đặt mã danh mục của sản phẩm
+ </summary>
+ <returns>Mã danh mục (CategoryId)</returns>
+</member>
+<member name="P:TechStoreApp.Product.CreatedBy">
+ <summary>
+ Lấy hoặc đặt mã người tạo sản phẩm
+ </summary>
+ <returns>Mã người tạo (CreatedBy)</returns>
+</member>
+<member name="P:TechStoreApp.Product.CreatedAt">
+ <summary>
+ Lấy thời điểm tạo sản phẩm
+ </summary>
+ <returns>Thời điểm tạo (CreatedAt)</returns>
+</member>
+<member name="F:TechStoreApp.Role._roleId">
+ <summary>
+ Trường riêng lưu mã định danh duy nhất của vai trò
+ </summary>
+</member>
+<member name="F:TechStoreApp.Role._roleName">
+ <summary>
+ Trường riêng lưu tên vai trò
+ </summary>
+</member>
+<member name="P:TechStoreApp.Role.RoleId">
+ <summary>
+ Lấy mã định danh duy nhất của vai trò
+ </summary>
+ <returns>Mã vai trò (RoleId)</returns>
+</member>
+<member name="P:TechStoreApp.Role.RoleName">
+ <summary>
+ Lấy hoặc đặt tên vai trò, không được trùng lặp
+ </summary>
+ <returns>Tên vai trò (RoleName)</returns>
+</member>
+<member name="F:TechStoreApp.User._userId">
+ <summary>
+ Trường riêng lưu mã định danh duy nhất của người dùng
+ </summary>
+</member>
+<member name="F:TechStoreApp.User._username">
+ <summary>
+ Trường riêng lưu tên đăng nhập
+ </summary>
+</member>
+<member name="F:TechStoreApp.User._passwordHash">
+ <summary>
+ Trường riêng lưu mật khẩu đã mã hóa
+ </summary>
+</member>
+<member name="F:TechStoreApp.User._email">
+ <summary>
+ Trường riêng lưu địa chỉ email
+ </summary>
+</member>
+<member name="F:TechStoreApp.User._roleId">
+ <summary>
+ Trường riêng lưu mã vai trò
+ </summary>
+</member>
+<member name="F:TechStoreApp.User._createdAt">
+ <summary>
+ Trường riêng lưu thời điểm tạo
+ </summary>
+</member>
+<member name="P:TechStoreApp.User.UserId">
+ <summary>
+ Lấy mã định danh duy nhất của người dùng
+ </summary>
+ <returns>Mã người dùng (UserId)</returns>
+</member>
+<member name="P:TechStoreApp.User.Username">
+ <summary>
+ Lấy hoặc đặt tên đăng nhập, không được trùng lặp
+ </summary>
+ <returns>Tên đăng nhập (Username)</returns>
+</member>
+<member name="P:TechStoreApp.User.PasswordHash">
+ <summary>
+ Lấy hoặc đặt mật khẩu đã được mã hóa
+ </summary>
+ <returns>Mật khẩu đã mã hóa (PasswordHash)</returns>
+</member>
+<member name="P:TechStoreApp.User.Email">
+ <summary>
+ Lấy hoặc đặt địa chỉ email của người dùng
+ </summary>
+ <returns>Email</returns>
+</member>
+<member name="P:TechStoreApp.User.RoleId">
+ <summary>
+ Lấy hoặc đặt mã vai trò liên kết với người dùng
+ </summary>
+ <returns>Mã vai trò (RoleId)</returns>
+</member>
+<member name="P:TechStoreApp.User.CreatedAt">
+ <summary>
+ Lấy thời điểm tạo người dùng
+ </summary>
+ <returns>Thời điểm tạo (CreatedAt)</returns>
+</member>
+</members>
+</doc>
